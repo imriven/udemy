@@ -1,0 +1,50 @@
+Creating and writing a txt file in ide
+
+1. Make sure you are in the correct directory you want to create the new file in.
+
+2. open the ide by typing python
+
+3. type in :
+
+>>> myfile = open("yourfilename.txt", "w")
+* note if you do not type in w you won't be able to write in the file you will just open it. The open method takes two arguments
+
+
+4. to write in file type:
+
+>>> myfile.write("yourString")
+*note every new line needs /n for a line break or it will concatonate for each line you add in. you add in a line by typeing in :
+
+>>> myfile.write("what you want to write")
+>>> myfile.write("what you want to write")
+>>> myfile.write("what you want to write")
+
+5. to save:
+
+>>> myfile.close()
+*note if you reopen file this way it will automatically overwrite old file. To add text to an existing file you want to append it
+
+6. to append file type in:
+
+>>> myfile = open("yourfilename.txt", "a")
+
+7. use write method again:
+
+myfile.write("yourString")
+*remember to use \n for a line break
+
+8. to append or add text to end of file 
+
+>>> myfile = open("yourfilename.txt", "+a")
+
+cursor starts at the end of file and will add text to the end.
+
+if you want to see what's in file before adding anything type:
+
+myfile.seek(0)
+myfile.read()
+
+and what is in the file should show up
+
+you can use myfile.write("text you want to write")
+to append whatever to the end
