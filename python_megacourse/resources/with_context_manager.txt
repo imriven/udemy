@@ -1,0 +1,20 @@
+Before this is how we opened files
+
+myfile = open("example.txt, "w")
+(this creates new file in folder)
+myfile = write("Something")
+(this puts the word something into the example txt file)
+9
+(the value of the string is returned after writing to the file.)
+myfile.close()
+(we save and close this file)
+
+
+a quicker way of writing this is by writing it this way 
+
+with open("example.txt", "w") as myfile:
+        myfile.write("Something")
+        (press enter twice)
+
+dont have to close file this way
+theres less code this way

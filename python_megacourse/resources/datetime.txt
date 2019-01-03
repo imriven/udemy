@@ -1,0 +1,72 @@
+Date time Module -
+
+import datetime
+or
+from datetime import datetime
+(imports object which is called datetime from the module which is also called datetime)
+(object name and module name happen to tbe the same name)
+
+------------------------------------------------------------------------------------------------
+example: lets say we want to get how much time has passed between now and December 31st 1900
+
+delta = datetime.now() - datetime(1900, 12, 31)
+this is the variable we are storing the information information
+
+delta.days
+this would give us the number of days that passed since then
+
+delta.seconds
+this would give us how many seconds have passed since then
+
+datetime.now()
+pertains to the current time.
+will print out: 
+datetime.datetime( year, month, day, hour, minutes, seconds, and microseconds)
+
+dir(datetime)
+will show you methods to use with datetime
+
+--------------------------------------------------------------------------------
+
+datetime objects-
+
+variable = datetime.now()
+variable = current time
+
+a common one to use is now as a variable
+
+ex.
+now = datetime.now()
+every time now is called it will be the current time
+
+ex
+then = datetime(year, month, day, etc.)
+(datetime expects and arguement)
+
+so we could use then - now to get how much time has passed between the two
+
+variable = datetime.strptime("2017-12-31" "%Y-%m-%d")
+result is:
+datetime.datetime(2017, 12, 31, 0, 0)
+
+(strptime converts a string to datetime)
+
+you can also change the format
+
+ex
+variable = datetime.strptime("2017:12:31:20:59", "%Y:%m:%d:%H:%M")
+result is:
+datetime.datetime(2017, 12, 31, 20, 59)
+
+you can get it to print out just a specific part from the variable
+
+ex
+
+variable.strptime("%Y")
+restult is:
+'2017'
+
+variable.strptime("%Y-%m-%d %H:%M")
+result is:
+'2017-12-31 20:39'
+
