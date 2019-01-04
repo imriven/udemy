@@ -1,0 +1,28 @@
+try and except
+
+try to capture the exception
+
+for example:
+
+def divide(a, b):
+    return a/b
+
+print(divide(1,0))
+
+This will get a ZeroDivisionError
+
+We use try to catch the exception
+
+def divide(a, b):
+    try:
+        return a/b
+    except:
+         print("you are dividing by zero")
+
+print(divide(1,0))
+
+Code will now work and send you the message.
+
+This makes sure the program code continues
+
+never except all errors. 
