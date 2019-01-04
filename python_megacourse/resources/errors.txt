@@ -1,0 +1,52 @@
+fixing errors
+
+an error is a bug that causes the program to function incorrectly
+
+python two types of errors
+
+syntax errors
+exceptions
+
+------------------------------------------------
+Syntax errors -  an error with the way the script is composed
+
+for example:
+
+a = [1, 2, 3]
+print a
+
+you would get a syntax error in python3 because print is a function and needs () like print()
+
+once error is fixed
+
+print(a)
+
+the script will work
+
+-------------------------------------------------------
+
+Exceptions - if error is not a syntax error it is an exception
+python will check for syntax errors before exceptions
+
+type error -  a type of exception. 
+
+a = 1
+b = "2"
+print(a + b)
+
+this will cause a type error since you can not add an integer to a string
+
+
+name error - use of a variable name that hasn't been defined
+
+a = 1
+b = 2
+print(c)
+
+python doesn't know what c is and will throw a name error
+
+indentation error - inconsistency in the code where there are tabs and spaces used to indent - Mixing of using tabs and spaces
+
+traceback - code that you're running (stack) has an error and the traceback will go through your code to find where the error happens.
+
+*** WHEN IN DOUBT GOOGLE IT OUT
