@@ -1,0 +1,31 @@
+json is another module that needs to be imported
+
+we import it by typing in the shell
+
+import json
+data = jason.load(open("path to the file.json"))
+
+----------------------
+
+example -
+
+type(data)
+will return:
+<class 'dict'>
+
+------ 
+
+after file is loaded you can print it to the console
+above we gave the file a variable of data
+
+print(data)
+
+the file will print to the console
+
+-----------------
+
+you can access a word in the file like this
+
+data["word"]
+
+--------------------------

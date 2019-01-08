@@ -13,7 +13,7 @@ Creating and writing a txt file in ide
 4. to write in file type:
 
 >>> myfile.write("yourString")
-*note every new line needs /n for a line break or it will concatonate for each line you add in. you add in a line by typeing in :
+*note every new line needs /n for a line break or it will concatenate for each line you add in. you add in a line by typeing in :
 
 >>> myfile.write("what you want to write")
 >>> myfile.write("what you want to write")
