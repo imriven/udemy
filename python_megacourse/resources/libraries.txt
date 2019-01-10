@@ -1,0 +1,99 @@
+Python Libraries
+
+https://docs.python.org/3/library/index.html
+
+
+difflib is a python library that compares text (this needs to be imported before you can use it)
+https://docs.python.org/3/library/difflib.html
+
+
+SequenceMatcher-
+This is a flexible class for comparing pairs of sequences of any type, so long as the sequence elements are hashable. The basic algorithm predates, and is a little fancier than, an algorithm published in the late 1980’s by Ratcliff and Obershelp under the hyperbolic name “gestalt pattern matching.” The idea is to find the longest contiguous matching subsequence that contains no “junk” elements; these “junk” elements are ones that are uninteresting in some sense, such as blank lines or whitespace. (Handling junk is an extension to the Ratcliff and Obershelp algorithm.) The same idea is then applied recursively to the pieces of the sequences to the left and to the right of the matching subsequence. This does not yield minimal edit sequences, but does tend to yield matches that “look right” to people.
+
+for the dictionary app we need to import the difflib library and SequenceMatcher.
+
+>>> import difflib
+>>> from difflib import SequenceMatcher
+
+SequenceMatcher(*1st_arg, *2nd_arg, *3rd_arg )
+
+*1st_arg - None or isjunk
+
+isjunk is for comparing two blocks of text. When you have break lines and spaces you want to pass in a function that will take care of that "junk" and ignores those lines.
+
+*2nd_arg is the word that you are comparing
+
+*3rd_arg is the actual word
+---------------------------------
+
+it returns nothing we want so we have to also apply the ratio method to it.
+
+ex.
+
+SequenceMatcher(None, "rainn", "rain").ratio()
+
+it returns a decimal number or float. On a scale from 0 to 1 the closer the float is to 1 the more similar the words are.
+
+0.8888888888888888
+
+so when the user typed in rainn they most likely meant rain.
+-------------------------------------
+need to import get_close_matches from difflib
+
+>>> import difflib
+>>> from difflib import get_close_matches
+
+for help on how to use get_close_matches
+>>> help(get_close_matches)
+
+Help on function get_close_matches in module difflib:
+
+get_close_matches(word, possibilities, n=3, cutoff=0.6)
+    Use SequenceMatcher to return list of the best "good enough" matches.
+
+    word is a sequence for which close matches are desired (typically a
+    string).
+
+    possibilities is a list of sequences against which to match word
+    (typically a list of strings).
+
+    Optional arg n (default 3) is the maximum number of close matches to
+    return.  n must be > 0.
+
+    Optional arg cutoff (default 0.6) is a float in [0, 1].  Possibilities
+    that don't score at least that similar to word are ignored.
+
+    The best (no more than n) matches among the possibilities are returned
+    in a list, sorted by similarity score, most similar first.
+
+   >>> get_close_matches("appel", ["ape", "apple", "peach", "puppy"])
+    ['apple', 'ape']
+    >>> import keyword as _keyword
+    >>> get_close_matches("wheel", _keyword.kwlist)
+    ['while']
+    >>> get_close_matches("Apple", _keyword.kwlist)
+    []
+    >>> get_close_matches("accept", _keyword.kwlist)
+    ['except']
+
+press q to exit help
+
+.keys() is a method of dictionary that returns all of the available keys in the dictionary.
+
+>>> get_close_matches("rainn", data.keys())
+
+
+>>> import diffLib
+>>> from difflib import get_close_matches
+>>> import json
+>>> data = json.load(open("dictionary_app/resources/data.json"))
+>>> get_close_matches("rainn", data.keys())
+
+will return:
+
+['rain', 'train', 'rainy']
+
+it returns the top three in order by how likely that is the word you want. If we want to take the top word we have to list it's index.
+
+>>> get_close_matches("rainn", data.keys())[0]
+'rain'

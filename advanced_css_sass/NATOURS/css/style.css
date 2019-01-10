@@ -1,0 +1,47 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* The * is a symbol for the universal selector - universal selector will select each and every element on the page and apply the changes to it.*/
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* this changes box model so padding and borers are no longer added*/
+
+}
+/* This performs a basic reset -  in order to make different browsers render in the exact same way */
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    /* means it's 1.7 times bigger than the predefined line height*/
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    /* vh is the view port height. so 95 vh is 95% of the viewport height */
+    background-image: linear-gradient(
+        to right bottom, 
+        #7ed56fd3, 
+        #28b485d3), 
+        url(../img/hero.jpg);
+    /* we need to use background image for both the image and the gradient. We can set them both in the same property by using a comma*/
+    background-size: cover;
+    /* Cover scales the image as large as possible without stretching the image. If the proportions of the image differ from the element, it is cropped either vertically or horizontally so that no empty space remains. */
+    background-position: top;
+    /* will  make sure the image stays at the top*/
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
+    /* We use this to cut a shape out of our header image, you can use % px or view port height*/
+}
