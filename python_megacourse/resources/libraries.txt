@@ -97,3 +97,12 @@ it returns the top three in order by how likely that is the word you want. If we
 
 >>> get_close_matches("rainn", data.keys())[0]
 'rain'
+
+________________________
+
+PANDAS
+________________________
+
+Pandas is a library providing data structures and data analysis tools within Python.
+http://pandas.pydata.org/
+
