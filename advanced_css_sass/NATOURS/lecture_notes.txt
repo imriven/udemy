@@ -1,0 +1,212 @@
+
+three main pillars of web dev
+
+responsive design
+maintainable and scalable code
+web performance
+
+responsive design - building a websites that works cohesively across all screen sizes. This is a standard on all websites today.
+
+-fluid layouts
+-media queries
+-responsive images
+-correct units
+-desktop-first vs mobile-first
+
+maintainable and scalable code -  More for the developer than the user
+
+-clean
+-easy to understand
+-growth
+-reusable
+-how to organize files
+-how to name classes
+-how to structure html
+
+web performance -  being conscious about how fast the site loads and how small the file sizes are and the size of the website in general.
+
+-less http requests
+-less code
+-compress code
+-use css preprocessor
+-less images-compress images
+
+-------------------------------------------------------------
+
+What happens to css when we load a webpage
+
+-the website loads the html
+-goes to parse (parse means to analyse) html where:
+1. loads the css
+2. parse css:
+    a.resolve confilicting css declarations
+    (through cascading)
+    b.processes final css values
+-creates a DOM (document object model) and CSSOM (css object model) to the render tree.
+The CSSOM and DOM trees are combined into a render tree, which is then used to compute the layout of each visible element and serves as an input to the paint process that renders the pixels to screen. 
+-we then have the visual formatting model and the website renders.
+-we then have the final rendered website.
+
+---------------------------------------------------------------
+
+CSS Terminology Review
+
+A CSS reusable
+
+.my-class {
+    color: blue;
+    text-align: center;
+    font-size: 20px;
+}
+
+.my-class is a selector
+
+{
+    color: blue;
+    text-align: center;
+    font-size: 20px; 
+
+} is the Declaration block
+
+font-size: 20px; - this is a declaration
+(property: declared value)
+
+selector - we use this to select one or more html elements that we want to style
+
+declaration block -  where we actually style the elements
+
+declaration - where we declare a css property styling we want to use for the html elements we selected. each declaration has a property and a declared valuethere can be more than one declaration in a declaration block.
+
+
+----------------------------------------------------------------
+(CSS Parsing)
+
+The cascade ( The "C" in CSS)
+
+First step is to resolve conflicting CSS declarations.
+Second step is to process the final CSS values.
+
+
+Cascade-
+
+Process of combining different style sheets and resolving conflicts between different CSS rules and declarations when more than one rules applies to a certain element.
+
+CSS can come from a number of sources. Author declarations are is the CSS developers write. User declarations come from the user. default browser declarations are depending on the browser is the CSS set up by the browser(user agent).
+
+Parse CSS
+
+resolves conflict by looking at:
+
+A. Importance
+B. Specificity
+C. Source Order
+
+Importance - 
+1. User !important declarations
+2. Author !important declarations
+3. Author declarations
+4. user declarations
+5. default browser declarations
+
+If the importance in all CSS is same next we look at the Specificity.
+
+1. Inline Styles
+2. IDs
+3. classes
+4. Elements, pseudo-elements
+
+Uses occurrences in each one of these categories to sum up how specific the element is. The winner of the declaration is called the cascaded value.
+
+(0,0,0,0)
+(Inline Styles, IDs, Classes, Elements)
+
+example
+
+#1
+.button {
+    font-size: 20px;
+    color: white;
+    background-color: blue;
+}
+
+(0,0,1,0)
+this only has the .button class
+
+#2
+nav#nav div.pull-right .button {
+    background-color: green;
+}
+(0,1,2,2)
+this has one ID, two classes and two elements. So far this one is the most specific
+
+#3
+a {
+    background-color: purple;
+}
+(0,0,0,1)
+this only specifies one element therefore #2 is still more specific
+
+#4
+#nav a.button:hover {
+    background-color: yellow;
+}
+(0,1,2,1)
+this specifies one ID, two classes and one pseudo element. It's still not as specific as #2 but it's more specific than #1 and #3. 
+
+#2 is the cascade value therefore the button will be green
+
+
+if the specificity is all the same next we look at the source order.
+
+The last declaration in the code will override all other declarations and will be applied.
+
+
+Review
+
+CSS declarations marked with !important have the highest priority.
+
+Only use !important as a last resource. Using important makes it harder for the user to change it - less maintainable
+
+inline styles will always have priority over styles in external stylesheets - most people do not use inline styling when coding so it shouldn't be too much of an issue.
+
+a selector that contains 1 ID is more specific than one with 1000 classes. If you want to be more specific use an ID
+
+a selector that contains 1 class is more specific than one with 1000 elements
+
+The universal selector has no specificity value (0,0,0,0)
+
+Rely more on specificity than on the order of selectors
+
+Rely on order when using 3rd party shtylesheets. Always put your stylesheet last.
+
+-----------------------
+
+How CSS values are processed
+
+--------------------------
+
+1. Decalred Value (author declarations) - 
+
+2. Cascaded Value (after the cascde) - 
+
+3. Specified value (defaulting, if there is no cascaded value) -
+
+4. Computed Value (converting relative values to absolute) - 
+
+
+Percentages are converted relatively
+
+we specify for a section to use 66% width
+.amazing {
+    width: 66%;
+}
+the width of the section that .amazing is in is 280px
+.section {
+    font-size: 1.5rem;
+    width: 280px;
+    background-color: orangered;
+}
+
+so by saying we want the width of amazing to be 66% of the width of section means we want it to be 184.8px. The used value will be rounded to a usable number.
+
+so when we use a percentage it's in relation to that parent element

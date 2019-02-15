@@ -1,0 +1,8 @@
+addresses have a pair of latitude and longitude coordinates. Every point on earth has these coordinates.
+The process to convert addresses to coordinates is called geocoding
+converting latitude and longitude into an address is call reverse geocoding
+Geopy is a library, import to use
+From geopy we want to use geocoders. Geocoders needs and internet connection to work it will get the address and then send you the cooridinates.
+A none working address will show none.
+Geocode will only take the address as "Street, City, State, Zip" 
+So we have to reconstruct it to include a column that has the information presented this way.
